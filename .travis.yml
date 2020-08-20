@@ -20,10 +20,6 @@ matrix:
       python: 3.6
       env: TOXENV=py36
 
-    - stage: Tests pyPy3
-      python: pypy3
-      env: TOXENV=pypy3
-
     - stage: Docs (Python 3.8)
       python: 3.8
       env: TOXENV=docs
