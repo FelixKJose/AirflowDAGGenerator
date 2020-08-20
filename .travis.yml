@@ -30,6 +30,8 @@ matrix:
 
 install:
   - pip install tox
+  - pip install apache-airflow
+  - airflow initdb
 
 script:
   - tox
