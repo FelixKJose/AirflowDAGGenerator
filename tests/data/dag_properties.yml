@@ -1,0 +1,13 @@
+---
+dag_run_depends_on_past: False
+dag_start_date: datetime.now()
+email_list:
+  - felixkjose@gmail.com
+  - test@gmail.com
+  -
+email_on_dag_failure: True
+dag_id: calculation_ingestion_job
+schedule_interval: 5 * * * *
+message: 'Hello World'
+python_task_id: 'print_message_task'
+bash_task_id: 'echo_task'

@@ -1,0 +1,41 @@
+from airflow import DAG
+from datetime import datetime, timedelta
+
+from airflow.operators.bash_operator import BashOperator
+from airflow.operators.python_operator import PythonOperator
+
+args = {
+    'owner': 'Airflow',
+    'depends_on_past': {{dag_run_depends_on_past}},
+    'start_date': {{dag_start_date}},
+    'email': {{ email_list }},
+    'email_on_failure': {{email_on_dag_failure}},
+    'email_on_retry': False,
+    'catchup': False,
+    'retries': 3,
+    'retry_delay': timedelta(seconds=5),
+}
+
+dag = DAG(dag_id='{{ dag_id }}',
+          default_args=args,
+          schedule_interval='{{ schedule_interval }}',
+          )
+
+
+def print_message():
+    print('{{ message }}')
+
+
+python_task = PythonOperator(task_id='{{python_task_id}}', python_callable=print_message, dag=dag)
+
+bash_task = BashOperator(
+    task_id='{{bash_task_id}}',
+    bash_command='echo 1',
+    dag=dag,
+)
+
+python_task >> bash_task
+
+
+if __name__ == "__main__":
+    dag.cli()

@@ -1,0 +1,35 @@
+dist: xenial
+
+language: python
+
+branches:
+  only:
+    - master
+
+matrix:
+  include:
+    - stage: Tests (Python 3.8)
+      python: 3.8
+      env: TOXENV=py38
+
+    - stage: Tests (Python 3.7)
+      python: 3.7
+      env: TOXENV=py37
+
+    - stage: Tests 3.6 (Python 3.6)
+      python: 3.6
+      env: TOXENV=py36
+
+    - stage: Tests pyPy3
+      python: pypy3
+      env: TOXENV=pypy3
+
+    - stage: Docs (Python 3.8)
+      python: 3.8
+      env: TOXENV=docs
+
+install:
+  - pip install tox
+
+script:
+  - tox
