@@ -52,9 +52,9 @@ def output_dag_file_name():
 @pytest.fixture
 def input_template_having_cyclic_task_dependency_file_name():
     """returns input invalid dag template having cyclic task dependency file name"""
-    return "dag_template_having_cyclic_task_dependency.py.j2" \
- \
- \
+    return "dag_template_having_cyclic_task_dependency.py.j2"
+
+
 @pytest.fixture
 def input_template_having_invalid_arguments_file_name():
     """returns input invalid dag template having cyclic task dependency file name"""
