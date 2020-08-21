@@ -22,7 +22,7 @@ copyright = '2020, Felix K Jose'
 author = 'Felix K Jose'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.0.2'
 
 # -- General configuration ---------------------------------------------------
 
