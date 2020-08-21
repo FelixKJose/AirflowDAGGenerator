@@ -86,12 +86,14 @@ def main():
     :raises ValueError: when the user provided input is invalid. For example, if the output dag file name provided is not a .py file or the input YAML config file doesn't contain any parameters or is invalid
     :raises AssertionError: when there is validation error on the generated DAG files
     """
-    print(sys.argv)
     runtime_args = __get_args__(sys.argv[1:])
+    print("Starting the Airflow DAG file Generation")
     generate_dag(runtime_args.input_config_yaml_path,
                  runtime_args.input_config_yaml_file_name,
                  runtime_args.input_template_path,
                  runtime_args.input_template_file_name,
                  runtime_args.output_dag_path,
                  runtime_args.output_dag_file_name)
+    print("Successfully Generated the Airflow DAG Python file under '{0}'".format(runtime_args.output_dag_path))
     validate_dag(runtime_args.output_dag_path)
+    print("Successfully Validated the generated Airflow DAG Python file")
