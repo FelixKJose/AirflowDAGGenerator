@@ -16,7 +16,7 @@ test_requirements = [
 
 setup(
     name='airflowdaggenerator',
-    version='0.0.1',
+    version='0.0.2',
     description="Dynamically generates and validates Python Airflow DAG file based on a Jinja2 Template and a YAML "
                 "configuration file to encourage code re-usability",
     long_description=readme,

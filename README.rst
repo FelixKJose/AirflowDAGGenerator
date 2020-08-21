@@ -92,3 +92,12 @@ following command:
               -dag_file_name test_dag.py
 
 And you can see that test_dag.py is created under ./tests/data/output folder.
+
+Troubleshooting
+===============
+In case you get some error while generating the dag using this package like (sqlite3.OperationalError)..., then please
+execute following command:
+
+.. code-block:: bash
+
+ airflow initdb
